@@ -1,0 +1,31 @@
+﻿@page
+@model inlabdbproj.Pages.BrowseModel
+@{
+	if(!string.IsNullOrEmpty(HttpContext.Session.GetString("username")))
+	{
+		Layout = "_Layout";
+	}
+	else
+	{
+		
+		Layout = "_Layout2";
+	}
+}
+
+@if(string.IsNullOrEmpty(HttpContext.Session.GetString("username")))
+{
+	<p class="text-black h1">Welcome.</p>
+}else if(HttpContext.Session.GetString("username")!.Contains("a-"))
+{
+	<p class="text-black h1">Welcome admin.</p>
+}else if(HttpContext.Session.GetString("username")!.Contains("s-"))
+{
+	<p class="text-black h1">Welcome Student: @HttpContext.Session.GetString("username").</p>
+}else if(HttpContext.Session.GetString("username")!.Contains("ad-"))
+{
+	<p class="text-black h1">Welcome Advisor: @HttpContext.Session.GetString("username").</p>
+}else
+{
+	@RedirectToPage("/Index")	
+}
+
