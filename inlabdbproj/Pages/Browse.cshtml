@@ -1,6 +1,7 @@
 ﻿@page
 @model inlabdbproj.Pages.BrowseModel
 @{
+	ViewData["exists"] = @Model.exists;
 	if(!string.IsNullOrEmpty(HttpContext.Session.GetString("username")))
 	{
 		Layout = "_Layout";
