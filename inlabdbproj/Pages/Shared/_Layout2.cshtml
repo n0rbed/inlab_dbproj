@@ -20,11 +20,14 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-                            @if (ViewData["exists"])
+                            @if (ViewData["exists"] == "0")
                             {
-								<a class="nav-link text-dark" asp-area="" asp-page="/Index">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Login</a>
+                            }else if(ViewData["exists"] == "1")
+                            {
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>
                             }
-						</li>
+                        </li>
 					</ul>
                 </div>
             </div>
